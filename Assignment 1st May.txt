@@ -1,0 +1,124 @@
+Assignment 1st May
+
+Answer1
+package recursionAssignment;
+
+import java.util.Scanner;
+
+/*Given an integer, find out the sum of its digits using recursion.
+Input: n= 1234
+Output: 10
+Explanation: 1+2+3+4=10*/
+public class Q1 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number :");
+		int num = sc.nextInt();
+		
+		int result = countDigitSum(num);
+		System.out.println("Digit Sum = "+result);
+	}
+
+	private static int countDigitSum(int num) {
+		if(num==0)
+			return 0;
+		else
+			return num%10 + countDigitSum(num/10);
+	}
+}
+
+Answer2
+package recursionAssignment;
+
+import java.util.Scanner;
+
+/*Q2: Given a number n. Find the sum of natural numbers till n but with alternate signs.
+That means if n = 5 then you have to return 1-2+3-4+5 = 3 as your answer.
+Constraints : 0<=n<=1e6
+Input1 : n = 10
+Output 1 : -5
+Explanation : 1-2+3-4+5-6+7-8+9-10 = -5
+Input 2 : n = 5
+Output 2 : 3*/
+public class Q2 {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the number :");
+		int num = sc.nextInt();
+		
+		int sum = 0;
+		for(int i=1 ; i<=num ;i++) {
+			if(i%2!=0)
+				sum += i;
+			else
+				sum -=i;
+		}
+		
+		System.out.println("Sum = "+sum);
+	}
+}
+
+Answer3
+package recursionAssignment;
+
+/*Print the max value of the array [ 13, 1, -3, 22, 5].*/
+public class Q3 {
+	public static void main(String[] args) {
+		int a[] = { 13, 1, -3, 22, 5 };
+		int max = Integer.MIN_VALUE;
+
+		for (int i = 0; i < a.length; i++) {
+			if (max < a[i]) {
+				max = a[i];
+			}
+		}
+		System.out.println("Max Value = " + max);
+	}
+}
+
+Answer4
+package recursionAssignment;
+/*: Find the sum of the values of the array [92, 23, 15, -20, 10].*/
+public class Q4 {
+	public static void main(String[] args) {
+		int a[] = {92,23,15,-20,10};
+		int sum=0;
+		for (int i = 0; i < a.length; i++) {
+			sum += a[i];
+		}
+		System.out.println("Sum = "+sum);
+	}
+}
+
+Answer5
+package recursionAssignment;
+
+import java.util.Scanner;
+public class Q5 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter a number to check :");
+		int num = sc.nextInt();
+		// counting number of digits
+		int temp = num;
+		int cnt = 0;
+		while (temp > 0) {
+			temp /= 10;
+			cnt++;
+		}
+		// finding armstrong number
+		int sum = 0;
+		int n = num;
+		while (n > 0) {
+			int rem = n % 10;
+			int pow = (int) Math.pow(rem, cnt);
+			sum += pow;
+			n /= 10;
+		}
+		
+		if (sum==num) 
+			System.out.println("YES");
+		else
+			System.out.println("NO");
+	}
+}
